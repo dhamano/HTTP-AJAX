@@ -9,9 +9,12 @@ class AddFriendForm extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.state.id !== this.props.listLength+1) {
+    if(this.state.id !== this.props.lastID+1) {
       this.setState( prevState => ({
-        id : this.props.listLength+1
+        id : this.props.lastID+1,
+        name : '',
+        age   : 0,
+        email : ''
       }))
     }
   }
@@ -31,10 +34,14 @@ class AddFriendForm extends React.Component {
     return (
       <form onSubmit={this.onSubmitAddToServer} className="friend-form">
         <h2>Add a Friend</h2>
-        
-        <label htmlFor="name"><input type="text" onChange={this.onChangeHandler} placeholder="name" id="name" name="name" value={this.state.name} /></label>
-        <label htmlFor="age"><input type="number" onChange={this.onChangeHandler} name="age" value={this.state.age} /></label>
-        <label htmlFor="email"><input type="email" onChange={this.onChangeHandler} placeholder="email" name="email" value={this.state.email} /></label>
+        <dl>
+          <dt><label htmlFor="name"><span>Name:</span></label></dt>
+          <dd><input type="text" onChange={this.onChangeHandler} placeholder="name" id="name" name="name" value={this.state.name} /></dd>
+          <dt><label htmlFor="age"><span>Age:</span></label></dt>
+          <dd><input type="number" onChange={this.onChangeHandler} name="age" value={this.state.age} /></dd>
+          <dt><label htmlFor="email"><span>Email:</span></label></dt>
+          <dd><input type="email" onChange={this.onChangeHandler} placeholder="email" name="email" value={this.state.email} /></dd>
+        </dl>
         <button type="submit">Submit</button>
       </form>
     );

@@ -1,71 +1,62 @@
-.friend-form {
-  max-width: 500px;
-  margin: 20px auto;
-  padding: 20px;
-  border: solid 1px #ccc;
-  border-radius: 6px;
-
-  h2 {
-    margin-top: 0;
-  }
-
-  input {
-    width: 100%;
-    margin: 14px auto;
-    padding: 0 12px;
-    font-size: 1rem;
-    line-height: 2.75em;
-    border-radius: 4px;
-    border: solid 1px #ccc;
-
-    &:first-child {
-      margin-top: 0;
-    }
-  }
-
-  button {
-    width: 100%;
-    margin-top: 12px;
-    padding: 10px 20px;
-    background: white;
-    color: orange;
-    font-weight: bold;
-    font-size: 1rem;
-    line-height: 1em;
-    border: solid 2px orange;
-    border-radius: 4px;
-    -moz-appearance: none;
-    appearance: none;
-    cursor: pointer;
-    transition: all 0.5s ease-in-out;
-
-    &:hover {
-      background: orange;
-      color: white;
-    }
-  }
-}
-
 .friends-list {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .friend-card {
   width: 100%;
   margin: 10px 0;
-  padding: 20px;
+  padding: 10px 20px 20px;
   border: solid 1px #ccc;
   border-radius: 6px;
+  position: relative;
 
   @media screen and (min-width: 640px) {
     $margin-size: 20px;
 
     width: calc(50% - #{$margin-size / 2});
+  }
 
-    &:nth-child(2n+1) {
-      margin-right: $margin-size;
+  @media screen and (min-width: 944px) {
+    $margin-size: 20px;
+
+    width: calc(33% - #{$margin-size});
+  }
+
+  @media screen and (min-width: 1200px) {
+    $margin-size: 20px;
+
+    width: calc(25% - #{$margin-size});
+  }
+
+  .edit-item {
+    margin-right: -10px;
+    margin-bottom: 5px;
+    text-align: right;
+
+    button {
+      padding: 4px 10px;
+      background: #f3f3f3;
+      color: #999;
+      font-size: 0.875rem;
+      line-height: 1em;
+      border: solid 1px #999;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      -moz-appearance: none;
+      appearance: none;
+
+      &.save {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background: rgb(10, 207, 10);
+        color: white;
+        border-color: rgb(10, 207, 10);
+      }
     }
   }
 
@@ -81,13 +72,13 @@
       line-height: 1.5em;
     }
 
-    dd {
+    dt {
       padding-right: 4px;
       text-align: right;
       font-weight: bold;
     }
 
-    dt {
+    dd {
       padding-left: 4px;
       text-align: left;
     }

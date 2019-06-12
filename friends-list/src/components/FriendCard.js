@@ -1,24 +1,25 @@
 import React from 'react';
 
+import DisplayFriend from './DisplayFriend';
+import DisplayEditFriend from './DisplayEditFriend';
+
 class FriendCard extends React.Component {
   state = {
-    id    : this.props.id,
-    name  : this.props.name,
-    age   : this.props.age,
-    email : this.props.email
+    isEditable: false
+  }
+
+  changeEditable = () => {
+    this.setState({
+      isEditable: !this.state.isEditable
+    })
   }
 
   render() {
     return(
       <div className="friend-card" data-id={this.state.id}>
-        <dl>
-          <dd>Name:</dd>
-          <dt>{this.state.name}</dt>
-          <dd>Age:</dd>
-          <dt>{this.state.age}</dt>
-          <dd>Email:</dd>
-          <dt><a href={`mailto:${this.state.email}`} title={this.state.email}>{this.state.email}</a></dt>
-        </dl>
+        {
+          (!this.state.isEditable) ? <DisplayFriend {...this.props} changeEditable={this.changeEditable}  /> : <DisplayEditFriend {...this.props} changeEditable={this.changeEditable} editFriendOnServer={this.props.editFriendOnServer} deleteFriendOnServer={this.props.deleteFriendOnServer} />
+        }
       </div>
     )
   }
