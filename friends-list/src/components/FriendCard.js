@@ -18,7 +18,10 @@ class FriendCard extends React.Component {
     return(
       <div className="friend-card" data-id={this.state.id}>
         {
-          (!this.state.isEditable) ? <DisplayFriend {...this.props} changeEditable={this.changeEditable}  /> : <DisplayEditFriend {...this.props} changeEditable={this.changeEditable} editFriendOnServer={this.props.editFriendOnServer} deleteFriendOnServer={this.props.deleteFriendOnServer} />
+          (this.state.isEditable) ?
+            <DisplayEditFriend {...this.props} changeEditable={this.changeEditable} editFriendOnServer={this.props.editFriendOnServer} deleteFriendOnServer={this.props.deleteFriendOnServer} />
+          :
+            <DisplayFriend {...this.props} changeEditable={this.changeEditable}  />
         }
       </div>
     )
