@@ -1,0 +1,95 @@
+.friends-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.friend-card {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px 20px 20px;
+  border: solid 1px #ccc;
+  border-radius: 6px;
+  position: relative;
+
+  @media screen and (min-width: 640px) {
+    $margin-size: 20px;
+
+    width: calc(50% - #{$margin-size / 2});
+  }
+
+  @media screen and (min-width: 944px) {
+    $margin-size: 20px;
+
+    width: calc(33% - #{$margin-size});
+  }
+
+  @media screen and (min-width: 1200px) {
+    $margin-size: 20px;
+
+    width: calc(25% - #{$margin-size});
+  }
+
+  .edit-item {
+    margin-right: -10px;
+    margin-bottom: 5px;
+    text-align: right;
+
+    button {
+      padding: 4px 10px;
+      background: #f3f3f3;
+      color: #999;
+      font-size: 0.875rem;
+      line-height: 1em;
+      border: solid 1px #999;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.5s ease-in-out;
+      -moz-appearance: none;
+      appearance: none;
+
+      &.save {
+        margin-right: 8px;
+      }
+
+      &:hover {
+        background: rgb(10, 207, 10);
+        color: white;
+        border-color: rgb(10, 207, 10);
+      }
+    }
+  }
+
+  dl {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+
+    dd, dt {
+      width: 50%;
+      margin: 0;
+      line-height: 1.5em;
+    }
+
+    dt {
+      padding-right: 4px;
+      text-align: right;
+      font-weight: bold;
+    }
+
+    dd {
+      padding-left: 4px;
+      text-align: left;
+    }
+
+    dd:nth-child(n+5), dt:nth-child(n+5) {
+      width: 100%;
+      text-align: center;
+    }
+
+    dd:nth-child(5) {
+      margin-top: 10px;
+    }
+  }
+}
